@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Dashboard</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .task { border: 1px solid #ccc; padding: 10px; margin: 5px 0; }
+    button { margin-left: 5px; }
+  </style>
+</head>
+<body>
+  <h2>รายการงานของฉัน</h2>
+
+  <form id="taskForm">
+    <input type="text" id="taskTitle" placeholder="ชื่องาน" required>
+    <input type="text" id="taskDetail" placeholder="รายละเอียดงาน">
+    <button type="submit">เพิ่มงาน</button>
+  </form>
+
+  <div id="tasksContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
