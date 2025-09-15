@@ -1,13 +1,9 @@
-const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
+const User = require('./user');
+const Task = require('./task');
 
-const Task = sequelize.define('Task', {
-  id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-  title: { type: DataTypes.STRING, allowNull: false },
-  status: { 
-    type: DataTypes.ENUM('pending', 'in-progress', 'done'),
-    defaultValue: 'pending'
-  }
-});
+// ความสัมพันธ์: 1 User มีหลาย Task
+User.hasMany(Task, { foreignKey: 'userId', as: 'tasks' });
+Task.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
-module.exports = Task;
+module.exports = { sequelize, User, Task };
