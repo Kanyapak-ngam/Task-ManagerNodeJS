@@ -1,3 +1,5 @@
+console.log("🚀 Starting server...");
+
 const express = require('express');
 const { sequelize } = require('./models');
 const usersRouter = require('./routes/users');
@@ -15,10 +17,12 @@ const PORT = process.env.PORT || 4000;
 (async () => {
   try {
     await sequelize.authenticate();
-    console.log('เชื่อมต่อฐานข้อมูลสำเร็จ');
+    console.log('✅ Database connected');
     await sequelize.sync({ alter: true });
-    app.listen(PORT, () => console.log(`เซิร์ฟเวอร์กำลังทำงานที่ http://localhost:${PORT}`));
+    app.listen(PORT, () =>
+      console.log(`🚀 Server running at http://localhost:${PORT}`)
+    );
   } catch (err) {
-    console.error('ไม่สามารถเชื่อมต่อฐานข้อมูลได้:', err);
+    console.error('❌ Failed to connect DB:', err);
   }
 })();
