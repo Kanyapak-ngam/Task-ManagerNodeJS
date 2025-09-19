@@ -1,4 +1,4 @@
-console.log("🚀 Starting server...");
+console.log("🚀 Starting server.......");
 
 const express = require('express');
 const { sequelize } = require('./models');
